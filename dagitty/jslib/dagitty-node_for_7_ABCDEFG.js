@@ -7763,19 +7763,30 @@ console.log('four!!!!')
 console.log(dags);
 
 // const out_alpha = dags.map(x => JSON.stringify(GraphAnalyzer.treeID(new Graph(x)))); 
-const data_out_7N = dags.map(x => {console.log(x); return JSON.stringify(GraphAnalyzer.treeID(new Graph(x)))} ); // <------
-console.log('five!!!!!')
+// const data_out_7N = dags.map(x => {console.log(x); return JSON.stringify(GraphAnalyzer.treeID(new Graph(x)))} ); // <------
+// console.log('five!!!!!')
 
-/////////////////////// <--------
-// write into file: 
-const fs = require('fs');
-const dataPath = path.join(__dirname,'/flds_computed_data_folder_new_18_05_23/data_out_7N')
-fs.writeFile(dataPath, JSON.stringify(data_out_7N), function(err) {
+///////////////////
+dags.map(x => {console.log(x);  const dataPath = path.join(__dirname,'/flds_computed_data_folder_new_18_05_23/data_out_7N') ;
+fs.writeFile(dataPath, JSON.stringify(GraphAnalyzer.treeID(new Graph(x))), function(err) {
     if(err) {
         return console.log(err);
     }
-    console.log("The data_out_7N file was saved!");
-}); 
+}); } ); // <------
+console.log('five!!!!!')
+
+///////////////////
+///
+/////////////////////// <--------
+// // write into file: 
+// const fs = require('fs');
+// const dataPath = path.join(__dirname,'/flds_computed_data_folder_new_18_05_23/data_out_7N')
+// fs.writeFile(dataPath, JSON.stringify(data_out_7N), function(err) {
+//     if(err) {
+//         return console.log(err);
+//     }
+//     console.log("The data_out_7N file was saved!");
+// }); 
 ////////////////////////
 
 console.log('six!!!!!')
@@ -7843,7 +7854,7 @@ const subbydags = subbybase.map(x => x.map(y => "dag { " + y + " }"))
 
 // console.log(subbydags);
 
-const monoton_data_7N = subbydags.map(x => x.map(y => JSON.stringify(GraphAnalyzer.treeID(new Graph(y))))); 
+// const monoton_data_7N = subbydags.map(x => x.map(y => JSON.stringify(GraphAnalyzer.treeID(new Graph(y))))); 
 
 // write into file: 
 const monotonDagPath = path.join(__dirname,'/flds_computed_data_folder_new_18_05_23/monoton_dags_7N')
@@ -7859,16 +7870,29 @@ fs.writeFile(monotonDagPath, JSON.stringify(subbydags), function(err) {
 
 
 // write into file: 
-const monotonPath = path.join(__dirname,'/flds_computed_data_folder_new_18_05_23/monoton_data_7N')
+// const monotonPath = path.join(__dirname,'/flds_computed_data_folder_new_18_05_23/monoton_data_7N')
 
-// const fs = require('fs');
+// // const fs = require('fs');
 
-fs.writeFile(monotonPath, JSON.stringify(monoton_data_7N), function(err) {
+// fs.writeFile(monotonPath, JSON.stringify(monoton_data_7N), function(err) {
+//     if(err) {
+//         return console.log(err);
+//     }
+//     console.log("The monoton_data_7N file was saved!");
+// }); 
+
+
+
+
+dags.map(x => {console.log(x);  const monotonPath = path.join(__dirname,'/flds_computed_data_folder_new_18_05_23/monoton_data_7N');
+fs.writeFile(monotonPath, JSON.stringify(subbydags.map(x => x.map(y => JSON.stringify(GraphAnalyzer.treeID(new Graph(y)))))), function(err) {
     if(err) {
         return console.log(err);
     }
-    console.log("The monoton_data_7N file was saved!");
-}); 
+}); } ); // <------
+console.log('neun!!!!!')
+
+
 
 
 // const not_mono_g = JSON.stringify(GraphAnalyzer.treeID(new Graph('dag { A->B->C->D->E A<->C B<->C B<->D C<->D }'))) 
