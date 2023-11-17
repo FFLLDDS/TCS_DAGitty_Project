@@ -7761,7 +7761,7 @@ console.log('three!!!')
 
 const dags = predags.map(x => ("dag { " + x + " }"))
 console.log('four!!!!')
-console.log(dags);
+// console.log(dags);
 
 // const out_alpha = dags.map(x => JSON.stringify(GraphAnalyzer.treeID(new Graph(x)))); 
 // const data_out_7N = dags.map(x => {console.log(x); return JSON.stringify(GraphAnalyzer.treeID(new Graph(x)))} ); // <------
