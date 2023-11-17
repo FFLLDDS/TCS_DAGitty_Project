@@ -7734,6 +7734,7 @@ module.exports = Object.assign( module.exports, {
 
 
 const path = require('path')
+const fs = require('fs'); 
 
 // console.log(JSON.stringify(GraphAnalyzer.treeID(new Graph("dag { A->B->C->D->E->F D<->E C<->E C<->D B<->F A<->F A<->E A<->D A<->C A<->B }"))))
 
