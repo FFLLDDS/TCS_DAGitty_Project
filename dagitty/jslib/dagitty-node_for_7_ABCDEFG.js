@@ -7768,7 +7768,7 @@ console.log('four!!!!')
 // console.log('five!!!!!')
 
 ///////////////////
-dags.map(x => {console.log(x);  const dataPath = path.join(__dirname,'/flds_computed_data_folder_new_18_05_23/data_out_7N') ;
+dags.map(x => {const dataPath = path.join(__dirname,'/flds_computed_data_folder_new_18_05_23/data_out_7N') ;
 fs.writeFile(dataPath, JSON.stringify(GraphAnalyzer.treeID(new Graph(x))), function(err) {
     if(err) {
         return console.log(err);
@@ -7810,11 +7810,11 @@ fs.writeFile(dagsPath, JSON.stringify(dags_out_7N), function(err) {
 ///////////////// <----------
 
 console.log('seven!!!!!!')
-
+////////////////////////////////////////////////////////////////////////////////////////////
 // get subsets of subsets: 
 
 // console.log(subsets.length)
-const subsubsets = subsets.map(x => getAllSubsets(x))  // <-------
+const subsubsets = subsets.map(x => getAllSubsets(x))  // <--------------------xxxxxxxxxxxxx
 
 
 console.log('eight!!!!!!!')
@@ -7836,6 +7836,7 @@ for (let i = 0; i < subsets.length; i++) {
 console.log(subsubsetright.length)
 console.log(subsubsets.length)
 console.log(subsets.length)
+console.log('neun!!!!!')
 
 // testnum = 60
 // console.log(subsubsets[testnum])
@@ -7848,11 +7849,14 @@ console.log(subsets.length)
 
 const subbys = subsubsetright.map(x => x.map(y => y.join(' ')))
 
+console.log('zehn!!!!!')
+
 let peath = ["A->B->C->D->E->F->G"]
 
 const subbybase = subbys.map(x => x.map(y => (peath + " " + y)))
 const subbydags = subbybase.map(x => x.map(y => "dag { " + y + " }"))
 
+console.log('zehn B!!!!!')
 // console.log(subbydags);
 
 // const monoton_data_7N = subbydags.map(x => x.map(y => JSON.stringify(GraphAnalyzer.treeID(new Graph(y))))); 
@@ -7885,13 +7889,13 @@ fs.writeFile(monotonDagPath, JSON.stringify(subbydags), function(err) {
 
 
 
-dags.map(x => {console.log(x);  const monotonPath = path.join(__dirname,'/flds_computed_data_folder_new_18_05_23/monoton_data_7N');
+dags.map(x => {const monotonPath = path.join(__dirname,'/flds_computed_data_folder_new_18_05_23/monoton_data_7N');
 fs.writeFile(monotonPath, JSON.stringify(subbydags.map(x => x.map(y => JSON.stringify(GraphAnalyzer.treeID(new Graph(y)))))), function(err) {
     if(err) {
         return console.log(err);
     }
 }); } ); // <------
-console.log('neun!!!!!')
+console.log('elf!!!!!')
 
 
 
