@@ -7812,29 +7812,46 @@ fs.writeFile(dagsPath, JSON.stringify(dags_out_7N), function(err) {
 console.log('seven!!!!!!')
 ////////////////////////////////////////////////////////////////////////////////////////////
 // get subsets of subsets: 
-
-// console.log(subsets.length)
-const subsubsets = subsets.map(x => getAllSubsets(x))  // <--------------------xxxxxxxxxxxxx
-
-
-console.log('eight!!!!!!!')
-
-console.log(subsubsets.length)
+// new: I think I only need the subsets of the subsets that are one smaller than the original subsets. Which is just the subset itself minus one element; for each element in the subset: 
 
 let subsubsetright = []
 
 for (let i = 0; i < subsets.length; i++) {
     let tempsubsets = [subsets[i]]
-  for (let subsubset in subsubsets[i]){
-    if (subsubsets[i][subsubset].length === (subsets[i].length - 1)){
-        tempsubsets.push(subsubsets[i][subsubset])
-    }
-  }
+	for (let j = 0; j < subsets[i].length; j++) {
+		let temptempsubset = []
+		for (let k = 0; subsets[i].length; k++) {
+			if (k !== j){ temptempsubset.push(subsets[i][k])}
+		}
+		tempsubsets.push(temptempsubset)
+  	}
   subsubsetright.push(tempsubsets)
 }
 
+
+
+// console.log(subsets.length)
+// const subsubsets = subsets.map(x => getAllSubsets(x))  // <--------------------xxxxxxxxxxxxx
+
+
+console.log('eight!!!!!!!')
+
+// console.log(subsubsets.length)
+
+// let subsubsetright = []
+
+// for (let i = 0; i < subsets.length; i++) {
+//     let tempsubsets = [subsets[i]]
+//   for (let subsubset in subsubsets[i]){
+//     if (subsubsets[i][subsubset].length === (subsets[i].length - 1)){
+//         tempsubsets.push(subsubsets[i][subsubset])
+//     }
+//   }
+//   subsubsetright.push(tempsubsets)
+// }
+
 console.log(subsubsetright.length)
-console.log(subsubsets.length)
+// console.log(subsubsets.length)
 console.log(subsets.length)
 console.log('neun!!!!!')
 
