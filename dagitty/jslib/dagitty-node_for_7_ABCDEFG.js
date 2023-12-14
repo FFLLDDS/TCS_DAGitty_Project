@@ -7820,7 +7820,7 @@ for (let i = 0; i < subsets.length; i++) {
     let tempsubsets = [subsets[i]]
 	for (let j = 0; j < subsets[i].length; j++) {
 		let temptempsubset = []
-		for (let k = 0; subsets[i].length; k++) {
+		for (let k = 0; k < subsets[i].length; k++) {
 			if (k !== j){ temptempsubset.push(subsets[i][k])}
 		}
 		tempsubsets.push(temptempsubset)
